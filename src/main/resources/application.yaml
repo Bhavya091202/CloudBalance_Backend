@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: CloudBalanceBackend
+# Database Connection
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloudBalance
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+# Hibernate Properties
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate.ddl-auto: update
+#    hibernate.ddl-auto: create-drop
+    show-sql: true
+
+
+jwtUtil:
+  app:
+    jwtSecret: "S3cuR3JWTsTr1Ng1234567890SuperLongKey"
+    jwtAccessExpirationMs: 900000
+    jwtRefreshExpirationMs: 604800000
+
