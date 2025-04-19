@@ -1,0 +1,7 @@
+package com.example.CloudBalanceBackend.repository;
+
+import com.example.CloudBalanceBackend.model.Account;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AccountRepository extends JpaRepository<Account, Long> {
+}

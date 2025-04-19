@@ -21,3 +21,7 @@ jwtUtil:
     jwtAccessExpirationMs: 900000
     jwtRefreshExpirationMs: 604800000
 
+aws:
+  region: ap-south-1 # update based on need
+  access-key: YOUR_ACCESS_KEY
+  secret-key: YOUR_SECRET_KEY

@@ -1,17 +1,16 @@
 package com.example.CloudBalanceBackend.util;
 
-import com.example.CloudBalanceBackend.DTO.UserDTO;
-import com.example.CloudBalanceBackend.Model.Account;
-import com.example.CloudBalanceBackend.Model.Erole;
-import com.example.CloudBalanceBackend.Model.User;
-import com.example.CloudBalanceBackend.Repository.AccountRepository;
+import com.example.CloudBalanceBackend.dto.UserDTO;
+import com.example.CloudBalanceBackend.model.Account;
+import com.example.CloudBalanceBackend.model.Erole;
+import com.example.CloudBalanceBackend.model.User;
+import com.example.CloudBalanceBackend.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Component

@@ -1,9 +1,8 @@
 package com.example.CloudBalanceBackend.util;
 
-import com.example.CloudBalanceBackend.DTO.AccountDTO;
-import com.example.CloudBalanceBackend.Model.Account;
-import com.example.CloudBalanceBackend.Model.User;
-import com.example.CloudBalanceBackend.Repository.UserRepository;
+import com.example.CloudBalanceBackend.dto.AccountDTO;
+import com.example.CloudBalanceBackend.model.Account;
+import com.example.CloudBalanceBackend.repository.UserRepository;
 import org.springframework.stereotype.Component;
 
 @Component
