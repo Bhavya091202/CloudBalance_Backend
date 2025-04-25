@@ -60,6 +60,7 @@ public class AuthServiceImpl implements AuthService {
 
         return ResponseEntity.ok(Map.of(
                 "accessToken", accessToken,
+                "id", userDetails.getId(),
                 "role", userDetails.getAuthorities().stream()
                         .map(GrantedAuthority::getAuthority)
                         .findFirst()

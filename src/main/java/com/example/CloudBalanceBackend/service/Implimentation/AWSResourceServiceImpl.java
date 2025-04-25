@@ -6,6 +6,7 @@ import com.example.CloudBalanceBackend.dto.AWS.ASGResourceDTO;
 import com.example.CloudBalanceBackend.dto.AWS.EC2ResourceDTO;
 import com.example.CloudBalanceBackend.dto.AWS.RDSResourceDTO;
 import com.example.CloudBalanceBackend.awsClient.EC2ClientBuilder;
+import com.example.CloudBalanceBackend.repository.AccountRepository;
 import com.example.CloudBalanceBackend.service.AwsResourceService;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.services.autoscaling.model.AutoScalingGroup;
@@ -19,9 +20,18 @@ import java.util.List;
 @Service
 public class AWSResourceServiceImpl implements AwsResourceService {
 
+    private final AccountRepository accountRepository;
+
+    public AWSResourceServiceImpl(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
 
     @Override
-    public List<EC2ResourceDTO> getEC2Instances(String roleArn) {
+    public List<EC2ResourceDTO> getEC2Instances(Long accountId) {
+        var roleArn = accountRepository
+                .findByAccountId(accountId)
+                .orElseThrow(()-> new RuntimeException("account not found"))
+                .getArn();
         var ec2Client = EC2ClientBuilder.buildEC2Client(roleArn);
         var response = ec2Client.describeInstances();
         List<EC2ResourceDTO> result = new ArrayList<>();
@@ -46,7 +56,11 @@ public class AWSResourceServiceImpl implements AwsResourceService {
     }
 
     @Override
-    public List<RDSResourceDTO> getRDSInstances(String roleArn) {
+    public List<RDSResourceDTO> getRDSInstances(Long accountId) {
+        var roleArn = accountRepository
+                .findByAccountId(accountId)
+                .orElseThrow(()-> new RuntimeException("account not found"))
+                .getArn();
         var rdsClient = RDSClientBuilder.buildRDSClient(roleArn);
         var response = rdsClient.describeDBInstances();
         List<RDSResourceDTO> result = new ArrayList<>();
@@ -63,7 +77,11 @@ public class AWSResourceServiceImpl implements AwsResourceService {
     }
 
     @Override
-    public List<ASGResourceDTO> getASGInstances(String roleArn) {
+    public List<ASGResourceDTO> getASGInstances(Long accountId) {
+        var roleArn = accountRepository
+                .findByAccountId(accountId)
+                .orElseThrow(()-> new RuntimeException("account not found"))
+                .getArn();
         var asgClient = ASGClientBuilder.buildASGClient(roleArn);
         var response = asgClient.describeAutoScalingGroups();
         List<ASGResourceDTO> result = new ArrayList<>();

@@ -1,4 +1,4 @@
-package com.example.CloudBalanceBackend.config;
+package com.example.CloudBalanceBackend.util.config;
 
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.AwsSessionCredentials;

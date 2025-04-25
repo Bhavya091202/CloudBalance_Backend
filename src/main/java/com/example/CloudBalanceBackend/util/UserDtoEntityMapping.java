@@ -75,7 +75,7 @@ public class UserDtoEntityMapping {
             entity.setPassword(encoder.encode(dto.getPassword()));
         }
 
-        entity.setLastLogin(dto.getLastLogin());
+//        entity.setLastLogin(dto.getLastLogin());
         Erole role = Erole.valueOf(dto.getRole());
         entity.setRole(role);
         if (role == Erole.ROLE_CUSTOMER && dto.getAccountIds() != null) {

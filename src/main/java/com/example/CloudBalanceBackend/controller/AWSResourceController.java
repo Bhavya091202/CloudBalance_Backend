@@ -21,17 +21,17 @@ public class AWSResourceController {
     private AwsResourceService awsResourceService;
 
     @GetMapping("/ec2")
-    public ResponseEntity<List<EC2ResourceDTO>> getEC2(@RequestParam String arn) {
-        return ResponseEntity.ok(awsResourceService.getEC2Instances(arn));
+    public ResponseEntity<List<EC2ResourceDTO>> getEC2(@RequestParam Long accountId) {
+        return ResponseEntity.ok(awsResourceService.getEC2Instances(accountId));
     }
 
     @GetMapping("/rds")
-    public ResponseEntity<List<RDSResourceDTO>> getRDS(@RequestParam String arn) {
-        return ResponseEntity.ok(awsResourceService.getRDSInstances(arn));
+    public ResponseEntity<List<RDSResourceDTO>> getRDS(@RequestParam Long accountId) {
+        return ResponseEntity.ok(awsResourceService.getRDSInstances(accountId));
     }
 
     @GetMapping("/asg")
-    public ResponseEntity<List<ASGResourceDTO>> getASG(@RequestParam String arn) {
-        return ResponseEntity.ok(awsResourceService.getASGInstances(arn));
+    public ResponseEntity<List<ASGResourceDTO>> getASG(@RequestParam Long accountId) {
+        return ResponseEntity.ok(awsResourceService.getASGInstances(accountId));
     }
 }

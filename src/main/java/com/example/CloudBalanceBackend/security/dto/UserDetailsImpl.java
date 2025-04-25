@@ -13,6 +13,7 @@ public class UserDetailsImpl implements UserDetails {
     private final String password;
     private final String firstName;
     private final String lastName;
+    private final Long id;
 
     private final Collection<? extends GrantedAuthority> authorities;
 
@@ -22,6 +23,7 @@ public class UserDetailsImpl implements UserDetails {
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.id = id;
         this.authorities = authorities;
     }
 
@@ -55,6 +57,10 @@ public class UserDetailsImpl implements UserDetails {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     @Override

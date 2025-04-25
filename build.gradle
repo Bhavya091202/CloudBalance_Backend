@@ -40,6 +40,9 @@ dependencies {
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
 
+	implementation 'net.snowflake:snowflake-jdbc:3.23.2'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
 	implementation platform("software.amazon.awssdk:bom:2.25.27")
 	implementation 'software.amazon.awssdk:ec2'
 	implementation 'software.amazon.awssdk:rds'

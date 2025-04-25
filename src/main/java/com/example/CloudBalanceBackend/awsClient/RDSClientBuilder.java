@@ -1,6 +1,6 @@
 package com.example.CloudBalanceBackend.awsClient;
 
-import com.example.CloudBalanceBackend.config.AWSCredentials;
+import com.example.CloudBalanceBackend.util.config.AWSCredentials;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.rds.RdsClient;
 
