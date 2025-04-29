@@ -1,6 +1,5 @@
 package com.example.CloudBalanceBackend.controller;
 
-import com.example.CloudBalanceBackend.dto.CostExplorerDTO;
 import com.example.CloudBalanceBackend.dto.SnowflakeDto;
 import com.example.CloudBalanceBackend.service.SnowflakeService;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +18,19 @@ public class SnowflakeController {
         this.snowflakeService = snowflakeService;
     }
 
-    @GetMapping("/accounts")
-    public ResponseEntity<List<Map<String, Object>>> getAccounts() {
-        return ResponseEntity.ok(snowflakeService.fetchAllAccounts());
-    }
+//    @GetMapping("/accounts")
+//    public ResponseEntity<List<Map<String, Object>>> getAccounts() {
+//        return ResponseEntity.ok(snowflakeService.fetchAllAccounts());
+//    }
 
-    @GetMapping("/services")
-    public  ResponseEntity<List<String>> getServices() {
-        return ResponseEntity.ok(snowflakeService.fetchAllServices());
+//    @GetMapping("/services")
+//    public  ResponseEntity<List<String>> getServices() {
+//        return ResponseEntity.ok(snowflakeService.fetchAllServices());
+//    }
+
+    @GetMapping("/filterData")
+    public ResponseEntity<List<String>> getFilterData(@RequestParam String filterName) {
+        return ResponseEntity.ok(snowflakeService.fetchFilterData(filterName));
     }
 
     @PostMapping("/graph-data")

@@ -1,4 +1,4 @@
-package com.example.CloudBalanceBackend.dto;
+package com.example.CloudBalanceBackend.trash;
 
 public enum ECostExplorerServices {
 

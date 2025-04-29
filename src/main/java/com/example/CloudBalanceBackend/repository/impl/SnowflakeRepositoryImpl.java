@@ -1,6 +1,5 @@
 package com.example.CloudBalanceBackend.repository.impl;
 
-import com.example.CloudBalanceBackend.dto.CostExplorerDTO;
 import com.example.CloudBalanceBackend.repository.SnowflakeRepository;
 import com.example.CloudBalanceBackend.util.query.QueryBuilder;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -35,5 +34,14 @@ public class SnowflakeRepositoryImpl implements SnowflakeRepository {
     @Override
     public List<Map<String, Object>> getDynamicGraphData(String query) {
         return snowflakeJdbcTemplate.queryForList(query);
+    }
+
+    @Override
+    public List<String> fetchDistinctValues(String filterName) {
+        String sql = String.format(
+                "SELECT DISTINCT %s FROM COST_EXPLORER WHERE %s IS  NOT NULL ORDER BY %s",
+                filterName, filterName, filterName
+        );
+        return snowflakeJdbcTemplate.queryForList(sql, String.class);
     }
 }

@@ -16,7 +16,6 @@ import java.util.List;
 public class CostExplorerGroupController {
     private final CostExplorerGroupService costExplorerGroupService;
 
-
     @GetMapping
     public ResponseEntity<List<CostExplorerGroupFilterDTO>> getAvailableServices() {
         return ResponseEntity.ok(costExplorerGroupService.getAllAvailableServices());

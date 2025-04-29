@@ -2,13 +2,14 @@ package com.example.CloudBalanceBackend.util.query;
 
 import com.example.CloudBalanceBackend.dto.SnowflakeDto;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class QueryBuilder {
 
-    public static String queryConverter(SnowflakeDto dto) {
+    public static String queryConverter(SnowflakeDto dto, LocalDate startDate, LocalDate endDate) {
         StringBuilder query = new StringBuilder();
 
         String groupByField = dto.getGroupBy();
@@ -26,11 +27,11 @@ public class QueryBuilder {
 
         // WHERE clause
         boolean hasWhereClause = false;
-        if (dto.getStartDate() != null && dto.getEndDate() != null) {
+        if (startDate != null && endDate != null) {
             query.append("WHERE USAGESTARTDATE BETWEEN TO_DATE('")
-                    .append(dto.getStartDate())
+                    .append(startDate)
                     .append("') AND TO_DATE('")
-                    .append(dto.getEndDate())
+                    .append(endDate)
                     .append("') ");
             hasWhereClause = true;
         }
